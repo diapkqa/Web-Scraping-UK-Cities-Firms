@@ -42,7 +42,7 @@ def scrape_city(city):
     except:
         print("No cookie popup found.")
 
-    # Search for the city
+
     search_box = wait.until(EC.presence_of_element_located((By.ID, "location-field")))
     search_box.clear()
     search_box.send_keys(city)
@@ -51,7 +51,7 @@ def scrape_city(city):
     country_dropdown = driver.find_element(By.ID, "country")
     country_dropdown.send_keys("United Kingdom")
 
-    # Click search button
+
     search_button = driver.find_element(By.CSS_SELECTOR, "button.btn.btn-lg[type='submit']")
     search_button.click()
 
@@ -86,7 +86,7 @@ def scrape_city(city):
                 raw_address = firm_details.get_attribute("innerHTML").split("<br>")
                 raw_address = [part.strip() for part in raw_address if part.strip()]
 
-                # Use BeautifulSoup to remove any remaining HTML tags from the address part
+
                 address_soup = BeautifulSoup(' '.join(raw_address), 'html.parser')
                 cleaned_address = address_soup.get_text(separator=" ").strip()
                 address_parts = [cleaned_address, firm_details.find_element(By.XPATH, ".//div").text.strip(),"United Kingdom"]
@@ -117,7 +117,7 @@ def scrape_city(city):
             except:
                 email, phone, website = "N/A", "N/A", "N/A"
 
-            # Append data to list
+
             all_data.append({
                 "Firm Name": firm_name,
                 "Address": full_address,
@@ -127,14 +127,13 @@ def scrape_city(city):
                 "Website": website
             })
 
-        # Check for next page button and move to next page if available
         try:
             next_button = driver.find_element(By.LINK_TEXT, "Next")
             if next_button.get_attribute("aria-disabled") == "true":
                 print(f"Finished scraping {city}!")
                 break  # No more pages
             else:
-                driver.execute_script("arguments[0].scrollIntoView();", next_button)  # Ensure visibility
+                driver.execute_script("arguments[0].scrollIntoView();", next_button)
                 driver.execute_script("arguments[0].click();", next_button)
                 page_number += 1
                 wait.until(EC.staleness_of(firms[0]))
