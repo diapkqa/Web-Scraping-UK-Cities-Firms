@@ -12,15 +12,17 @@ options.add_argument("--headless")
 driver = webdriver.Chrome(options=options)
 driver.maximize_window()
 
-cities = [
-    "London", "Birmingham", "Manchester", "Liverpool", "Leeds",
-    "Sheffield", "Bristol", "Newcastle upon Tyne", "Nottingham", "Leicester",
-    "Southampton", "Portsmouth", "Coventry", "Bradford", "Wolverhampton",
-    "Edinburgh", "Glasgow", "Aberdeen", "Dundee",
-    "Cardiff", "Swansea", "Newport",
-    "Belfast", "Londonderry"
-]
 
+# """""London", "Birmingham", "Manchester", "Liverpool", "Leeds",
+#     "Sheffield", "Bristol", "Newcastle upon Tyne", "Nottingham", "Leicester",
+#     "Southampton", "Portsmouth", "Coventry", "Bradford", "Wolverhampton",
+#     "Edinburgh", "Glasgow", "Aberdeen", "Dundee",
+#     "Cardiff", "Swansea", "Newport",
+#     "Belfast", "Londonderry"""""
+
+
+cities = [
+    "Manchester"]
 
 
 URL = "https://www.accaglobal.com/gb/en/member/find-an-accountant/find-firm.html"
@@ -147,7 +149,7 @@ for city in cities:
 
 
 df = pd.DataFrame(all_data)
-df.to_excel("ACCA_UK_Firms_List.xlsx", index=False)
+df.to_excel("ACCA_Manchester.xlsx", index=False)
 
 
 driver.quit()
