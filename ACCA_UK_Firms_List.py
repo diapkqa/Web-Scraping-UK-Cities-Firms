@@ -13,12 +13,12 @@ driver = webdriver.Chrome(options=options)
 driver.maximize_window()
 
 
-# """""London", "Birmingham", "Manchester", "Liverpool", "Leeds",
-#     "Sheffield", "Bristol", "Newcastle upon Tyne", "Nottingham", "Leicester",
-#     "Southampton", "Portsmouth", "Coventry", "Bradford", "Wolverhampton",
-#     "Edinburgh", "Glasgow", "Aberdeen", "Dundee",
-#     "Cardiff", "Swansea", "Newport",
-#     "Belfast", "Londonderry"""""
+"""""London", "Birmingham", "Manchester", "Liverpool", "Leeds",
+    "Sheffield", "Bristol", "Newcastle upon Tyne", "Nottingham", "Leicester",
+    "Southampton", "Portsmouth", "Coventry", "Bradford", "Wolverhampton",
+    "Edinburgh", "Glasgow", "Aberdeen", "Dundee",
+    "Cardiff", "Swansea", "Newport",
+    "Belfast", "Londonderry"""""
 
 
 cities = [
